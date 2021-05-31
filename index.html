@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Component - Animated Card</title>
+    <script src="index.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Oswald:400,700");
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Start of template #animated-card -->
+    <!-- A card with flipping animation effect  -->
+    <template id="animated-card">
+      <div class="card">
+        <div class="card__content">
+          <!-- front side contents -->
+          <div class="card__front">
+            <h3 class="card__title">Hello <slot name="title">Title</slot></h3>
+            <p class="card__subtitle"><slot name="subtitle">Subtitle</slot></p>
+          </div>
+          <!-- back side contents -->
+          <div class="card__back">
+            <p class="card__body">
+              <slot name="body">Lorem, ipsum dolor sit amet consectetur.</slot>
+            </p>
+            <button class="card__button">Delete Me</button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <!-- End of template #animated-card -->
+
+    <div class="container">
+      <animated-card bg-img="https://source.unsplash.com/400x400/?nature">
+        <span slot="title">Lyon</span>
+        <span slot="subtitle">Lorem, ipsum dolor.</span>
+        <span slot="body">Ini hari yang cerah.</span>
+      </animated-card>
+      <animated-card bg-img="https://source.unsplash.com/400x400/?water">
+        <span slot="title">C.C</span>
+        <span slot="subtitle">Lorem, ipsum dolor.</span>
+        <span slot="body">Aku berharap besok menjadi hari yang indah.</span>
+      </animated-card>
+      <animated-card bg-img="https://source.unsplash.com/400x400/?computer">
+        <span slot="title">Inori</span>
+        <span slot="subtitle">I said Lyon is Awesome</span>
+      </animated-card>
+    </div>
+  </body>
+</html>
